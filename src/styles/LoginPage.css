@@ -1,0 +1,23 @@
+/* LoginPage.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #e0eafc, #cfdef3);
+  padding: 1rem;
+}
+
+.login-paper {
+  padding: 2rem;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 600px) {
+  .login-paper {
+    padding: 1.5rem;
+  }
+}
