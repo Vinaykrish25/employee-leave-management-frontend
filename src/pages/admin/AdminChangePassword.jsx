@@ -29,7 +29,7 @@ const AdminChangePassword = () => {
 
     try {
       await axios.put(
-        'http://localhost:5000/api/users/change-password',
+        'https://employee-leave-management-backend-qqodtdesw.vercel.app/users/change-password',
         { oldPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );

@@ -33,7 +33,7 @@ const AdminDepartments = () => {
   const token = localStorage.getItem('token');
 
   const fetchDepartments = async () => {
-    const res = await axios.get('http://localhost:5000/api/departments', {
+    const res = await axios.get('https://employee-leave-management-backend-qqodtdesw.vercel.app/departments', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setDepartments(res.data);
@@ -46,12 +46,12 @@ const AdminDepartments = () => {
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/departments/${editingId}`, form, {
+        await axios.put(`https://employee-leave-management-backend-qqodtdesw.vercel.app/departments/${editingId}`, form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Department updated successfully', severity: 'success' });
       } else {
-        await axios.post('http://localhost:5000/api/departments', form, {
+        await axios.post('https://employee-leave-management-backend-qqodtdesw.vercel.app/departments', form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Department added successfully', severity: 'success' });
@@ -78,7 +78,7 @@ const AdminDepartments = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/departments/${id}`, {
+      await axios.delete(`https://employee-leave-management-backend-qqodtdesw.vercel.app/departments/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSnackbar({ open: true, message: 'Department deleted', severity: 'info' });

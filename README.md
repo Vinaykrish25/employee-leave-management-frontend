@@ -1,70 +1,150 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+```markdown
+# Employee Leave Management System – Frontend
 
-## Available Scripts
+This is the **frontend** of the Employee Leave Management System developed using **React.js**, **Material UI (MUI)**, and **Axios**. It allows administrators and employees to manage and monitor leave requests through a responsive and role-based dashboard.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Getting Started
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📦 Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Make sure you have the following installed:
 
-### `npm test`
+- **Node.js** (v14 or above)
+- **npm** (comes with Node.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📁 Folder Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+frontend/
+├── public/
+│   └── index.html
+│
+├── src/
+│   ├── components/
+│   │   ├── Admin/
+│   │   │   ├── AdminDashboard.jsx
+│   │   │   ├── AdminDepartments.jsx
+│   │   │   ├── AdminEmployees.jsx
+│   │   │   ├── AdminLeaveApplications.jsx
+│   │   │   ├── AdminLeaveTypes.jsx
+│   │   │   └── ChangePassword.jsx
+│   │   ├── Employee/
+│   │   │   ├── EmployeeDashboard.jsx
+│   │   │   ├── ApplyLeave.jsx
+│   │   │   ├── LeaveHistory.jsx
+│   │   │   ├── MyProfile.jsx
+│   │   │   └── ChangePassword.jsx
+│   │   └── Common/
+│   │       ├── Header.jsx
+│   │       └── Sidebar.jsx
+│   │
+│   ├── pages/
+│   │   ├── AdminLogin.jsx
+│   │   ├── EmployeeLogin.jsx
+│   │   ├── RegisterEmployee.jsx
+│   │   └── NotFound.jsx
+│   │
+│   ├── services/
+│   │   └── api.js
+│   │
+│   ├── App.js
+│   ├── index.js
+│   └── App.css
+│
+├── .env
+├── .gitignore
+└── package.json
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+````
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🧠 Features
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+✅ **Role-based dashboards**  
+✅ **Admin functionalities**:
+  - Manage departments (add/edit/delete)
+  - Manage employees
+  - Manage leave types
+  - View and take action on leave applications  
+✅ **Employee functionalities**:
+  - Apply for leave
+  - Track leave history
+  - View and update profile
+  - Change password  
+✅ **JWT-based authentication**  
+✅ **Responsive Material UI interface**  
+✅ **Search, sort, and pagination for tables**  
+✅ **Export to PDF and Excel**  
+✅ **Snackbars and Dialogs for user feedback**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## ⚙️ Environment Setup
 
-## Learn More
+Create a `.env` file in the root of the `frontend/` folder and add:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```env
+REACT_APP_API_BASE_URL=http://localhost:5000/api
+````
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Make sure the backend server is running at the specified base URL.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## 🛠️ Installation & Running the App
 
-### Analyzing the Bundle Size
+1. Clone the repository:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```bash
+git clone https://github.com/your-username/employee-leave-management-frontend.git
+cd employee-leave-management-frontend
+```
 
-### Making a Progressive Web App
+2. Install dependencies:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+npm install
+```
 
-### Advanced Configuration
+3. Start the development server:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+npm start
+```
 
-### Deployment
+> App will be available at: `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🔒 Authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* JWT token is stored in `localStorage` upon login.
+* Protected routes restrict access based on role.
+* Authorization headers are included in every API request via Axios.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. Please follow proper coding conventions and structure when contributing.
+
+---
+
+## 📘 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👨‍💻 Author
+
+Developed by \[Vinaykrishna]
+
+```

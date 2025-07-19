@@ -33,7 +33,7 @@ const EmployeeLayout = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          "http://localhost:5000/api/employee-profile/profile",
+          "https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-profile/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const EmployeeLayout = () => {
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
     try {
-      await fetch("http://localhost:5000/api/users/logout", {
+      await fetch("https://employee-leave-management-backend-qqodtdesw.vercel.app/users/logout", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });

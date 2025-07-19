@@ -43,7 +43,7 @@ const LoginPage = () => {
         sessionStorage.setItem("loginStatus", "info");
 
         const response = await axios.post(
-          "http://localhost:5000/api/users/login",
+          "https://employee-leave-management-backend-qqodtdesw.vercel.app/users/login",
           values
         );
         const { token, role, username, profile_image } = response.data;

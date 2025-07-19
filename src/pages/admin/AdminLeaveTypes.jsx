@@ -33,7 +33,7 @@ const AdminLeaveTypes = () => {
   const token = localStorage.getItem('token');
 
   const fetchLeaveTypes = async () => {
-    const res = await axios.get('http://localhost:5000/api/leave-types', {
+    const res = await axios.get('https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-types', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setLeaveTypes(res.data);
@@ -46,12 +46,12 @@ const AdminLeaveTypes = () => {
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`http://localhost:5000/api/leave-types/${editingId}`, form, {
+        await axios.put(`https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-types/${editingId}`, form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Leave type updated', severity: 'success' });
       } else {
-        await axios.post('http://localhost:5000/api/leave-types', form, {
+        await axios.post('https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-types', form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Leave type added', severity: 'success' });
@@ -74,7 +74,7 @@ const AdminLeaveTypes = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/leave-types/${id}`, {
+      await axios.delete(`https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-types/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSnackbar({ open: true, message: 'Leave type deleted', severity: 'info' });

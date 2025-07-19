@@ -43,8 +43,8 @@ const AdminLeaveApplications = () => {
   const fetchLeaves = async () => {
     try {
       const url = statusFilter === 'All'
-        ? 'http://localhost:5000/api/leave-details'
-        : `http://localhost:5000/api/leaves/${statusFilter}`;
+        ? 'https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-details'
+        : `https://employee-leave-management-backend-qqodtdesw.vercel.app/leaves/${statusFilter}`;
 
       const res = await axios.get(url, {
         headers: { Authorization: `Bearer ${token}` }
@@ -65,7 +65,7 @@ const AdminLeaveApplications = () => {
     try {
       setLoadingAction(true);
       await axios.put(
-        `http://localhost:5000/api/leaves/action/${leaveId}`,
+        `https://employee-leave-management-backend-qqodtdesw.vercel.app/leaves/action/${leaveId}`,
         { status, admin_remark: remark },
         { headers: { Authorization: `Bearer ${token}` } }
       );

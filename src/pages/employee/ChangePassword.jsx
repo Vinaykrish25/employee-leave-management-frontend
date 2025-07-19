@@ -43,7 +43,7 @@ const ChangePassword = () => {
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
         const res = await axios.put(
-          'http://localhost:5000/api/users/change-password',
+          'https://employee-leave-management-backend-qqodtdesw.vercel.app/users/change-password',
           {
             oldPassword: values.oldPassword,
             newPassword: values.newPassword,

@@ -27,7 +27,7 @@ const LeaveHistory = () => {
   useEffect(() => {
     const fetchLeaves = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/employee-leave/history', {
+        const res = await axios.get('https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-leave/history', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLeaves(res.data);
