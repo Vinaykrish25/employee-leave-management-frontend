@@ -91,7 +91,7 @@ const AdminLayout = () => {
       onClick: async () => {
         const token = localStorage.getItem("token");
         try {
-          await fetch("http://localhost:5000/api/users/logout", {
+          await fetch("https://employee-leave-management-backend.vercel.app/users/logout", {
             method: "POST",
             headers: { Authorization: `Bearer ${token}` },
           });

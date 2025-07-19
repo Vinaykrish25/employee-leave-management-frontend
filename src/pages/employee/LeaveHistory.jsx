@@ -14,7 +14,7 @@ import {
   Tabs,
   Tab
 } from '@mui/material';
-import axios from 'axios';
+import axiosInstance from '../../utils/axiosInstance';
 
 const LeaveHistory = () => {
   const [leaves, setLeaves] = useState([]);
@@ -27,7 +27,7 @@ const LeaveHistory = () => {
   useEffect(() => {
     const fetchLeaves = async () => {
       try {
-        const res = await axios.get('https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-leave/history', {
+        const res = await axiosInstance.get('https://employee-leave-management-backend.vercel.app/employee-leave/history', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setLeaves(res.data);

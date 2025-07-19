@@ -18,7 +18,7 @@ import {
   Alert,
   TablePagination
 } from '@mui/material';
-import axios from 'axios';
+import axiosInstance from '../../utils/axiosInstance';
 
 const AdminDepartments = () => {
   const [departments, setDepartments] = useState([]);
@@ -33,7 +33,7 @@ const AdminDepartments = () => {
   const token = localStorage.getItem('token');
 
   const fetchDepartments = async () => {
-    const res = await axios.get('https://employee-leave-management-backend-qqodtdesw.vercel.app/departments', {
+    const res = await axiosInstance.get('/departments', {
       headers: { Authorization: `Bearer ${token}` }
     });
     setDepartments(res.data);
@@ -46,12 +46,12 @@ const AdminDepartments = () => {
   const handleSubmit = async () => {
     try {
       if (editingId) {
-        await axios.put(`https://employee-leave-management-backend-qqodtdesw.vercel.app/departments/${editingId}`, form, {
+        await axiosInstance.put(`/departments/${editingId}`, form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Department updated successfully', severity: 'success' });
       } else {
-        await axios.post('https://employee-leave-management-backend-qqodtdesw.vercel.app/departments', form, {
+        await axiosInstance.post('/departments', form, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setSnackbar({ open: true, message: 'Department added successfully', severity: 'success' });
@@ -78,7 +78,7 @@ const AdminDepartments = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://employee-leave-management-backend-qqodtdesw.vercel.app/departments/${id}`, {
+      await axiosInstance.delete(`/departments/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSnackbar({ open: true, message: 'Department deleted', severity: 'info' });

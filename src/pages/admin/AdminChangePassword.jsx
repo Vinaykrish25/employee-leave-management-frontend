@@ -8,7 +8,7 @@ import {
   Alert,
   Paper
 } from '@mui/material';
-import axios from 'axios';
+import axiosInstance from '../../utils/axiosInstance';
 
 const AdminChangePassword = () => {
   const [oldPassword, setOldPassword] = useState('');
@@ -28,8 +28,8 @@ const AdminChangePassword = () => {
     }
 
     try {
-      await axios.put(
-        'https://employee-leave-management-backend-qqodtdesw.vercel.app/users/change-password',
+      await axiosInstance.put(
+        '/users/change-password',
         { oldPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );

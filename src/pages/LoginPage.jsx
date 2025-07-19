@@ -15,7 +15,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import axiosInstance from "../utils/axiosInstance";
 import { useNavigate } from "react-router-dom";
 import "../styles/LoginPage.css";
 import { jwtDecode } from "jwt-decode";
@@ -42,8 +42,8 @@ const LoginPage = () => {
         sessionStorage.setItem("loginMessage", "Logging in...");
         sessionStorage.setItem("loginStatus", "info");
 
-        const response = await axios.post(
-          "https://employee-leave-management-backend-qqodtdesw.vercel.app/users/login",
+        const response = await axiosInstance.post(
+          "/users/login",
           values
         );
         const { token, role, username, profile_image } = response.data;

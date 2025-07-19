@@ -33,7 +33,7 @@ const EmployeeLayout = () => {
     const fetchUser = async () => {
       try {
         const res = await fetch(
-          "https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-profile/profile",
+          "https://employee-leave-management-backend.vercel.app/employee-profile/profile",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -58,7 +58,7 @@ const EmployeeLayout = () => {
   const handleLogout = async () => {
     const token = localStorage.getItem("token");
     try {
-      await fetch("https://employee-leave-management-backend-qqodtdesw.vercel.app/users/logout", {
+      await fetch("https://employee-leave-management-backend.vercel.app/users/logout", {
         method: "POST",
         headers: { Authorization: `Bearer ${token}` },
       });
@@ -107,7 +107,7 @@ const EmployeeLayout = () => {
             {user.profile_image ? (
               <Avatar
                 alt={user.username}
-                src={`http://localhost:5000${user.profile_image}`} // ✅ Add server path prefix if needed
+                src={`https://employee-leave-management-backend.vercel.app${user.profile_image}`} // ✅ Add server path prefix if needed
                 sx={{ width: 36, height: 36 }}
               />
             ) : (

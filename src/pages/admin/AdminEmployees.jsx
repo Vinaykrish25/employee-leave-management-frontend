@@ -70,7 +70,7 @@ const AdminEmployees = () => {
 
   const fetchDepartments = async () => {
     try {
-      const res = await fetch("https://employee-leave-management-backend-qqodtdesw.vercel.app/departments");
+      const res = await fetch("https://employee-leave-management-backend.vercel.app/departments");
       const data = await res.json();
       setDepartments(data);
     } catch (error) {
@@ -80,7 +80,7 @@ const AdminEmployees = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await fetch("https://employee-leave-management-backend-qqodtdesw.vercel.app/employees");
+      const res = await fetch("https://employee-leave-management-backend.vercel.app/employees");
       const data = await res.json();
       setEmployees(data);
     } catch (error) {
@@ -96,8 +96,8 @@ const AdminEmployees = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const endpoint = editMode
-      ? `https://employee-leave-management-backend-qqodtdesw.vercel.app/employees/${formData.id}`
-      : "https://employee-leave-management-backend-qqodtdesw.vercel.app/employees";
+      ? `https://employee-leave-management-backend.vercel.app/employees/${formData.id}`
+      : "https://employee-leave-management-backend.vercel.app/employees";
     const method = editMode ? "PUT" : "POST";
 
     try {
@@ -135,7 +135,7 @@ const AdminEmployees = () => {
     const newStatus = currentStatus === "Active" ? "Inactive" : "Active";
     try {
       const res = await fetch(
-        `https://employee-leave-management-backend-qqodtdesw.vercel.app/employees/status/${id}`,
+        `https://employee-leave-management-backend.vercel.app/employees/status/${id}`,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },

@@ -23,7 +23,7 @@ import {
   TableSortLabel,
   Divider,
 } from '@mui/material';
-import axios from 'axios';
+import axiosInstance from '../../utils/axiosInstance';
 
 const AdminLeaveApplications = () => {
   const [leaves, setLeaves] = useState([]);
@@ -46,7 +46,7 @@ const AdminLeaveApplications = () => {
         ? 'https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-details'
         : `https://employee-leave-management-backend-qqodtdesw.vercel.app/leaves/${statusFilter}`;
 
-      const res = await axios.get(url, {
+      const res = await axiosInstance.get(url, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setLeaves(res.data);
@@ -64,8 +64,8 @@ const AdminLeaveApplications = () => {
     const leaveId = selected.id || selected.leave_id;
     try {
       setLoadingAction(true);
-      await axios.put(
-        `https://employee-leave-management-backend-qqodtdesw.vercel.app/leaves/action/${leaveId}`,
+      await axiosInstance.put(
+        `/leaves/action/${leaveId}`,
         { status, admin_remark: remark },
         { headers: { Authorization: `Bearer ${token}` } }
       );

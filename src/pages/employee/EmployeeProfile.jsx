@@ -28,7 +28,7 @@ const EmployeeProfile = () => {
     const fetchProfile = async () => {
       try {
         const res = await fetch(
-          "https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-profile/profile",
+          "https://employee-leave-management-backend.vercel.app/employee-profile/profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -89,7 +89,7 @@ const EmployeeProfile = () => {
 
     try {
       const res = await fetch(
-        "https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-profile/profile",
+        "https://employee-leave-management-backend.vercel.app/employee-profile/profile",
         {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` },
@@ -136,7 +136,7 @@ const EmployeeProfile = () => {
         <Avatar
           src={
             formData.profile_image
-              ? `https://employee-leave-management-backend-qqodtdesw.vercel.app${formData.profile_image}`
+              ? `https://employee-leave-management-backend.vercel.app${formData.profile_image}`
               : ""
           }
           alt={formData.first_name}

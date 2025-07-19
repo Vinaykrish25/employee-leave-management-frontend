@@ -65,7 +65,7 @@ const AdminDashboard = () => {
     const fetchDashboardStats = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await fetch('https://employee-leave-management-backend-qqodtdesw.vercel.app/users/admin-dashboard', {
+        const response = await fetch('https://employee-leave-management-backend.vercel.app/users/admin-dashboard', {
           headers: {
             Authorization: `Bearer ${token}`
           }

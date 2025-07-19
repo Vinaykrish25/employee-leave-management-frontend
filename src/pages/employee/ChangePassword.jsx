@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
+import axiosInstance from '../../utils/axiosInstance';
 
 const ChangePassword = () => {
   const [snackbar, setSnackbar] = React.useState({
@@ -42,8 +42,8 @@ const ChangePassword = () => {
     }),
     onSubmit: async (values, { setSubmitting, resetForm }) => {
       try {
-        const res = await axios.put(
-          'https://employee-leave-management-backend-qqodtdesw.vercel.app/users/change-password',
+        const res = await axiosInstance.put(
+          '/users/change-password',
           {
             oldPassword: values.oldPassword,
             newPassword: values.newPassword,

@@ -24,7 +24,7 @@ const ApplyLeave = () => {
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   useEffect(() => {
-    fetch('https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-types')
+    fetch('https://employee-leave-management-backend.vercel.app/leave-types')
       .then(res => res.json())
       .then(setLeaveTypes)
       .catch(err => console.error('Error fetching leave types:', err));
@@ -57,7 +57,7 @@ const ApplyLeave = () => {
     }
 
     try {
-      const res = await fetch('https://employee-leave-management-backend-qqodtdesw.vercel.app/employee-leave/apply', {
+      const res = await fetch('https://employee-leave-management-backend.vercel.app/employee-leave/apply', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
