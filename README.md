@@ -1,8 +1,6 @@
-
-```markdown
 # Employee Leave Management System – Frontend
 
-🔗 **Live Demo:** [Employee Leave Management System](https://employee-leave-management-frontend.vercel.app/login)
+🔗 **Live Demo:** [employee-leave-management-frontend.vercel.app](https://employee-leave-management-frontend.vercel.app/login)
 
 This is the **frontend** of the Employee Leave Management System developed using **React.js**, **Material UI (MUI)**, and **Axios**. It allows administrators and employees to manage and monitor leave requests through a responsive and role-based dashboard.
 
@@ -21,49 +19,46 @@ Make sure you have the following installed:
 
 ## 📁 Folder Structure
 
-```
-
 frontend/
 ├── public/
-│   └── index.html
+│ └── index.html
 │
 ├── src/
-│   ├── components/
-│   │   ├── Admin/
-│   │   │   ├── AdminDashboard.jsx
-│   │   │   ├── AdminDepartments.jsx
-│   │   │   ├── AdminEmployees.jsx
-│   │   │   ├── AdminLeaveApplications.jsx
-│   │   │   ├── AdminLeaveTypes.jsx
-│   │   │   └── ChangePassword.jsx
-│   │   ├── Employee/
-│   │   │   ├── EmployeeDashboard.jsx
-│   │   │   ├── ApplyLeave.jsx
-│   │   │   ├── LeaveHistory.jsx
-│   │   │   ├── MyProfile.jsx
-│   │   │   └── ChangePassword.jsx
-│   │   └── Common/
-│   │       ├── Header.jsx
-│   │       └── Sidebar.jsx
-│   │
-│   ├── pages/
-│   │   ├── AdminLogin.jsx
-│   │   ├── EmployeeLogin.jsx
-│   │   ├── RegisterEmployee.jsx
-│   │   └── NotFound.jsx
-│   │
-│   ├── services/
-│   │   └── api.js
-│   │
-│   ├── App.js
-│   ├── index.js
-│   └── App.css
+│ ├── components/
+│ │ ├── Admin/
+│ │ │ ├── AdminDashboard.jsx
+│ │ │ ├── AdminDepartments.jsx
+│ │ │ ├── AdminEmployees.jsx
+│ │ │ ├── AdminLeaveApplications.jsx
+│ │ │ ├── AdminLeaveTypes.jsx
+│ │ │ └── ChangePassword.jsx
+│ │ ├── Employee/
+│ │ │ ├── EmployeeDashboard.jsx
+│ │ │ ├── ApplyLeave.jsx
+│ │ │ ├── LeaveHistory.jsx
+│ │ │ ├── MyProfile.jsx
+│ │ │ └── ChangePassword.jsx
+│ │ └── Common/
+│ │ ├── Header.jsx
+│ │ └── Sidebar.jsx
+│ │
+│ ├── pages/
+│ │ ├── AdminLogin.jsx
+│ │ ├── EmployeeLogin.jsx
+│ │ ├── RegisterEmployee.jsx
+│ │ └── NotFound.jsx
+│ │
+│ ├── services/
+│ │ └── api.js
+│ │
+│ ├── App.js
+│ ├── index.js
+│ └── App.css
 │
 ├── .env
 ├── .gitignore
 └── package.json
 
-````
 
 ---
 
@@ -93,60 +88,32 @@ frontend/
 Create a `.env` file in the root of the `frontend/` folder and add:
 
 ```env
-REACT_APP_API_BASE_URL=http://localhost:5000/
-````
+REACT_APP_API_BASE_URL=https://employee-leave-management-backend.vercel.app/
 
-Make sure the backend server is running at the specified base URL.
+🛠️ Installation & Running the App
+Clone the repository:
 
----
-
-## 🛠️ Installation & Running the App
-
-1. Clone the repository:
-
-```bash
 git clone https://github.com/your-username/employee-leave-management-frontend.git
 cd employee-leave-management-frontend
-```
 
-2. Install dependencies:
-
-```bash
+Install dependencies:
 npm install
-```
 
-3. Start the development server:
-
-```bash
+Start the development server:
 npm start
-```
 
-> App will be available at: `http://localhost:3000`
+🔒 Authentication
+JWT token is stored in localStorage upon login.
 
----
+Protected routes restrict access based on role.
 
-## 🔒 Authentication
+Authorization headers are included in every API request via Axios.
 
-* JWT token is stored in `localStorage` upon login.
-* Protected routes restrict access based on role.
-* Authorization headers are included in every API request via Axios.
-
----
-
-## 🤝 Contributing
-
+🤝 Contributing
 Pull requests are welcome. Please follow proper coding conventions and structure when contributing.
 
----
-
-## 📘 License
-
+📘 License
 This project is licensed under the MIT License.
 
----
-
-## 👨‍💻 Author
-
-Developed by \[Vinaykrishna]
-
-```
+👨‍💻 Author
+Developed by Vinaykrishna
