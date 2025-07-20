@@ -1,119 +1,97 @@
-# Employee Leave Management System – Frontend
+# 🧑‍💼 Employee Leave Management System – Frontend
 
-🔗 **Live Demo:** [employee-leave-management-frontend.vercel.app](https://employee-leave-management-frontend.vercel.app/login)
+🔗 **Live Demo:** [https://employee-leave-management-frontend.vercel.app/login](https://employee-leave-management-frontend.vercel.app/login)
 
 This is the **frontend** of the Employee Leave Management System developed using **React.js**, **Material UI (MUI)**, and **Axios**. It allows administrators and employees to manage and monitor leave requests through a responsive and role-based dashboard.
 
 ---
 
-## 🚀 Getting Started
+## 🚀 Features
 
-### 📦 Prerequisites
-
-Make sure you have the following installed:
-
-- **Node.js** (v14 or above)
-- **npm** (comes with Node.js)
+- Role-based dashboards (Admin & Employee)
+- Admin capabilities:
+  - Manage departments
+  - Manage employees
+  - Manage leave types
+  - View & approve/reject leave applications
+- Employee capabilities:
+  - Apply for leave
+  - Track leave history
+  - View & update profile
+- JWT-based Authentication
+- Material UI design
+- Snackbars and Dialogs for user feedback
+- Export leave data to PDF and Excel
 
 ---
 
 ## 📁 Folder Structure
 
+```
 frontend/
 ├── public/
-│ └── index.html
-│
+│   └── index.html
 ├── src/
-│ ├── components/
-│ │ ├── Admin/
-│ │ │ ├── AdminDashboard.jsx
-│ │ │ ├── AdminDepartments.jsx
-│ │ │ ├── AdminEmployees.jsx
-│ │ │ ├── AdminLeaveApplications.jsx
-│ │ │ ├── AdminLeaveTypes.jsx
-│ │ │ └── ChangePassword.jsx
-│ │ ├── Employee/
-│ │ │ ├── EmployeeDashboard.jsx
-│ │ │ ├── ApplyLeave.jsx
-│ │ │ ├── LeaveHistory.jsx
-│ │ │ ├── MyProfile.jsx
-│ │ │ └── ChangePassword.jsx
-│ │ └── Common/
-│ │ ├── Header.jsx
-│ │ └── Sidebar.jsx
-│ │
-│ ├── pages/
-│ │ ├── AdminLogin.jsx
-│ │ ├── EmployeeLogin.jsx
-│ │ ├── RegisterEmployee.jsx
-│ │ └── NotFound.jsx
-│ │
-│ ├── services/
-│ │ └── api.js
-│ │
-│ ├── App.js
-│ ├── index.js
-│ └── App.css
-│
+│   ├── components/
+│   │   ├── Admin/
+│   │   ├── Employee/
+│   │   └── Common/
+│   ├── pages/
+│   ├── services/
+│   ├── App.js
+│   ├── index.js
+│   └── App.css
 ├── .env
 ├── .gitignore
 └── package.json
-
-
----
-
-## 🧠 Features
-
-✅ **Role-based dashboards**  
-✅ **Admin functionalities**:
-  - Manage departments (add/edit/delete)
-  - Manage employees
-  - Manage leave types
-  - View and take action on leave applications  
-✅ **Employee functionalities**:
-  - Apply for leave
-  - Track leave history
-  - View and update profile
-  - Change password  
-✅ **JWT-based authentication**  
-✅ **Responsive Material UI interface**  
-✅ **Search, sort, and pagination for tables**  
-✅ **Export to PDF and Excel**  
-✅ **Snackbars and Dialogs for user feedback**
+```
 
 ---
 
-## ⚙️ Environment Setup
+## ⚙️ Installation & Running Locally
 
-Create a `.env` file in the root of the `frontend/` folder and add:
+1. Clone the repo and navigate into it:
 
-```env
-REACT_APP_API_BASE_URL=https://employee-leave-management-backend.vercel.app/
-
-🛠️ Installation & Running the App
-Clone the repository:
-
+```bash
 git clone https://github.com/your-username/employee-leave-management-frontend.git
 cd employee-leave-management-frontend
+```
 
-Install dependencies:
+2. Install dependencies:
+
+```bash
 npm install
+```
 
-Start the development server:
+3. Create `.env` file:
+
+```env
+REACT_APP_API_BASE_URL=http://localhost:5000/
+```
+
+4. Start the app:
+
+```bash
 npm start
+```
 
-🔒 Authentication
-JWT token is stored in localStorage upon login.
+App runs at: [http://localhost:3000](http://localhost:3000)
 
-Protected routes restrict access based on role.
+---
 
-Authorization headers are included in every API request via Axios.
+## 🔐 Authentication
 
-🤝 Contributing
-Pull requests are welcome. Please follow proper coding conventions and structure when contributing.
+- JWT stored in localStorage
+- Authorization header attached to Axios requests
+- Role-based route protection using React Router
 
-📘 License
-This project is licensed under the MIT License.
+---
 
-👨‍💻 Author
-Developed by Vinaykrishna
+## 🚀 Deployment Notes
+
+If deploying to Vercel:
+
+- Set `REACT_APP_API_BASE_URL` in Vercel project settings to point to the deployed backend
+- Make sure backend has CORS enabled for frontend URL
+
+---
