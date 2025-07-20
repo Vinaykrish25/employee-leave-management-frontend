@@ -2,6 +2,8 @@
 ```markdown
 # Employee Leave Management System – Frontend
 
+🔗 **Live Demo:** [Notes App](https://employee-leave-management-frontend.vercel.app/login)
+
 This is the **frontend** of the Employee Leave Management System developed using **React.js**, **Material UI (MUI)**, and **Axios**. It allows administrators and employees to manage and monitor leave requests through a responsive and role-based dashboard.
 
 ---
@@ -91,7 +93,7 @@ frontend/
 Create a `.env` file in the root of the `frontend/` folder and add:
 
 ```env
-REACT_APP_API_BASE_URL=http://localhost:5000/api
+REACT_APP_API_BASE_URL=http://localhost:5000/
 ````
 
 Make sure the backend server is running at the specified base URL.
