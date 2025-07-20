@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Typography,
@@ -16,38 +16,27 @@ import {
   DialogActions,
   Snackbar,
   Alert,
-  TablePagination,
-} from "@mui/material";
-import axiosInstance from "../../utils/axiosInstance";
+  TablePagination
+} from '@mui/material';
+import axiosInstance from '../../utils/axiosInstance';
 
 const AdminLeaveTypes = () => {
   const [leaveTypes, setLeaveTypes] = useState([]);
   const [open, setOpen] = useState(false);
-  const [form, setForm] = useState({ type: "", description: "" });
+  const [form, setForm] = useState({ type: '', description: '' });
   const [editingId, setEditingId] = useState(null);
-  const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: "",
-    severity: "success",
-  });
-  const [search, setSearch] = useState("");
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
+  const [search, setSearch] = useState('');
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
-  const token = localStorage.getItem("token");
+  const token = localStorage.getItem('token');
 
   const fetchLeaveTypes = async () => {
-    try {
-      const res = await axiosInstance.get("/leave-types");
-      setLeaveTypes(res.data);
-    } catch (err) {
-      console.error("Failed to fetch leave types:", err);
-      setSnackbar({
-        open: true,
-        message: "Failed to fetch leave types",
-        severity: "error",
-      });
-    }
+    const res = await axiosInstance.get('/leave-types', {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    setLeaveTypes(res.data);
   };
 
   useEffect(() => {
@@ -58,30 +47,22 @@ const AdminLeaveTypes = () => {
     try {
       if (editingId) {
         await axiosInstance.put(`/leave-types/${editingId}`, form, {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: { Authorization: `Bearer ${token}` }
         });
-        setSnackbar({
-          open: true,
-          message: "Leave type updated",
-          severity: "success",
-        });
+        setSnackbar({ open: true, message: 'Leave type updated', severity: 'success' });
       } else {
-        await axiosInstance.post("/leave-types", form, {
-          headers: { Authorization: `Bearer ${token}` },
+        await axiosInstance.post('/leave-types', form, {
+          headers: { Authorization: `Bearer ${token}` }
         });
-        setSnackbar({
-          open: true,
-          message: "Leave type added",
-          severity: "success",
-        });
+        setSnackbar({ open: true, message: 'Leave type added', severity: 'success' });
       }
       setOpen(false);
-      setForm({ type: "", description: "" });
+      setForm({ type: '', description: '' });
       setEditingId(null);
       fetchLeaveTypes();
     } catch (err) {
       console.error(err);
-      setSnackbar({ open: true, message: "Error occurred", severity: "error" });
+      setSnackbar({ open: true, message: 'Error occurred', severity: 'error' });
     }
   };
 
@@ -94,22 +75,13 @@ const AdminLeaveTypes = () => {
   const handleDelete = async (id) => {
     try {
       await axiosInstance.delete(`/leave-types/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token}` }
       });
-      setSnackbar({
-        open: true,
-        message: "Leave type deleted",
-        severity: "info",
-      });
+      setSnackbar({ open: true, message: 'Leave type deleted', severity: 'info' });
       fetchLeaveTypes();
     } catch (err) {
       console.error(err);
-      setSnackbar({
-        open: true,
-        message:
-          "Cannot delete leave type. It is used in one or more leave records",
-        severity: "error",
-      });
+      setSnackbar({ open: true, message: 'Cannot delete leave type. It is used in one or more leave records', severity: 'error' });
     }
   };
 
@@ -122,10 +94,9 @@ const AdminLeaveTypes = () => {
     setPage(0);
   };
 
-  const filteredTypes = leaveTypes.filter(
-    (type) =>
-      type.type.toLowerCase().includes(search.toLowerCase()) ||
-      type.description.toLowerCase().includes(search.toLowerCase())
+  const filteredTypes = leaveTypes.filter(type =>
+    type.type.toLowerCase().includes(search.toLowerCase()) ||
+    type.description.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -134,12 +105,7 @@ const AdminLeaveTypes = () => {
         Manage Leave Types
       </Typography>
 
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        mb={2}
-      >
+      <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
         <Button variant="contained" onClick={() => setOpen(true)}>
           Add Leave Type
         </Button>
@@ -162,27 +128,17 @@ const AdminLeaveTypes = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {filteredTypes
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((type, idx) => (
-                <TableRow key={type.id}>
-                  <TableCell>{page * rowsPerPage + idx + 1}</TableCell>
-                  <TableCell>{type.type}</TableCell>
-                  <TableCell>{type.description}</TableCell>
-                  <TableCell>
-                    <Button size="small" onClick={() => handleEdit(type)}>
-                      Edit
-                    </Button>
-                    <Button
-                      size="small"
-                      color="error"
-                      onClick={() => handleDelete(type.id)}
-                    >
-                      Delete
-                    </Button>
-                  </TableCell>
-                </TableRow>
-              ))}
+            {filteredTypes.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((type, idx) => (
+              <TableRow key={type.id}>
+                <TableCell>{page * rowsPerPage + idx + 1}</TableCell>
+                <TableCell>{type.type}</TableCell>
+                <TableCell>{type.description}</TableCell>
+                <TableCell>
+                  <Button size="small" onClick={() => handleEdit(type)}>Edit</Button>
+                  <Button size="small" color="error" onClick={() => handleDelete(type.id)}>Delete</Button>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
         <TablePagination
@@ -196,7 +152,7 @@ const AdminLeaveTypes = () => {
       </Paper>
 
       <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogTitle>{editingId ? "Edit" : "Add"} Leave Type</DialogTitle>
+        <DialogTitle>{editingId ? 'Edit' : 'Add'} Leave Type</DialogTitle>
         <DialogContent>
           <TextField
             label="Leave Type"
@@ -215,7 +171,7 @@ const AdminLeaveTypes = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={() => setOpen(false)}>Cancel</Button>
-          <Button onClick={handleSubmit}>{editingId ? "Update" : "Add"}</Button>
+          <Button onClick={handleSubmit}>{editingId ? 'Update' : 'Add'}</Button>
         </DialogActions>
       </Dialog>
 
@@ -223,9 +179,9 @@ const AdminLeaveTypes = () => {
         open={snackbar.open}
         autoHideDuration={3000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
-        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-        <Alert severity={snackbar.severity} sx={{ width: "100%" }}>
+        <Alert severity={snackbar.severity} sx={{ width: '100%' }}>
           {snackbar.message}
         </Alert>
       </Snackbar>
