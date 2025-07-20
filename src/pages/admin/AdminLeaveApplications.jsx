@@ -43,8 +43,8 @@ const AdminLeaveApplications = () => {
   const fetchLeaves = async () => {
     try {
       const url = statusFilter === 'All'
-        ? 'https://employee-leave-management-backend-qqodtdesw.vercel.app/leave-details'
-        : `https://employee-leave-management-backend-qqodtdesw.vercel.app/leaves/${statusFilter}`;
+        ? 'https://employee-leave-management-backend.vercel.app/leave-details'
+        : `https://employee-leave-management-backend.vercel.app/leaves/${statusFilter}`;
 
       const res = await axiosInstance.get(url, {
         headers: { Authorization: `Bearer ${token}` }
