@@ -2,7 +2,7 @@
 ```markdown
 # Employee Leave Management System – Frontend
 
-🔗 **Live Demo:** [Notes App](https://employee-leave-management-frontend.vercel.app/login)
+🔗 **Live Demo:** [Employee Leave Management System](https://employee-leave-management-frontend.vercel.app/login)
 
 This is the **frontend** of the Employee Leave Management System developed using **React.js**, **Material UI (MUI)**, and **Axios**. It allows administrators and employees to manage and monitor leave requests through a responsive and role-based dashboard.
 
